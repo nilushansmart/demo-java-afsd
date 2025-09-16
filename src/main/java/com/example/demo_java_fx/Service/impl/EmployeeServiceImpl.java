@@ -7,15 +7,15 @@ import com.example.demo_java_fx.entity.Employee;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
-    public boolean saveEmployee(EmployeeDTO employeeDTO) {
-        Database.employees.add(new Employee(employeeDTO.getIdNo(), employeeDTO.getName(), employeeDTO.getAddress(), employeeDTO.getPosition()));
+    public boolean saveEmployee(EmployeeDTO DTO) {
+        Database.employees.add(new Employee(DTO.getIdNo(), DTO.getName(), DTO.getAddress(), DTO.getPosition()));
         return true;
     }
 
     @Override
-    public boolean deleteEmployee(EmployeeDTO employeeDTO) {
+    public boolean deleteEmployee(EmployeeDTO DTO) {
         for (Employee emp : Database.employees){
-            if (emp.getIdNo() == employeeDTO.getIdNo()){
+            if (emp.getIdNo() == DTO.getIdNo()){
                 emp.setIdNo(0);
                 emp.setName(null);
                 emp.setAddress(null);
@@ -26,9 +26,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDTO searchEmployee(EmployeeDTO employeeDTO) {
+    public EmployeeDTO searchEmployee(EmployeeDTO DTO) {
         for (Employee emp : Database.employees){
-            if (emp.getIdNo() == employeeDTO.getIdNo()){
+            if (emp.getIdNo() == DTO.getIdNo()){
                 return new EmployeeDTO(emp.getIdNo(), emp.getName(), emp.getAddress(), emp.getPosition());
             }
         }
@@ -36,12 +36,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean update(EmployeeDTO employeeDTO) {
+    public boolean update(EmployeeDTO DTO) {
         for (Employee emp : Database.employees) {
-            if (emp.getIdNo() == employeeDTO.getIdNo()) {
-                emp.setName(employeeDTO.getName());
-                emp.setAddress(employeeDTO.getAddress());
-                emp.setPosition(employeeDTO.getPosition());
+            if (emp.getIdNo() == DTO.getIdNo()) {
+                emp.setName(DTO.getName());
+                emp.setAddress(DTO.getAddress());
+                emp.setPosition(DTO.getPosition());
             }
         }
         return true;

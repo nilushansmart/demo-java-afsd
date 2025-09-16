@@ -28,9 +28,9 @@ public class SaveEmployeeController {
         int id = Integer.parseInt(txtId.getText());
 
         EmployeeService employeeService = new EmployeeServiceImpl();
-        boolean status = employeeService.deleteEmployee(new EmployeeDTO(id));
+        boolean sts = employeeService.deleteEmployee(new EmployeeDTO(id));
 
-        if (status) {
+        if (sts) {
             System.out.println("Deleted Successfully");
         } else {
             System.out.println("ID Not Found");
@@ -68,13 +68,13 @@ public class SaveEmployeeController {
         int id = Integer.parseInt(txtId.getText());
 
         EmployeeService employeeService = new EmployeeServiceImpl();
-        EmployeeDTO status = employeeService.searchEmployee(new EmployeeDTO(id));
+        EmployeeDTO sts = employeeService.searchEmployee(new EmployeeDTO(id));
 
-        if (status == null){
+        if (sts == null){
             System.out.println("Employee not found");
         }else{
             System.out.println("Id     | Name            | Address         | Position ");
-            System.out.println(status.getIdNo()+"   "+status.getName()+"    "+status.getAddress()+"     "+status.getPosition());
+            System.out.println(sts.getIdNo()+"   "+sts.getName()+"    "+sts.getAddress()+"     "+sts.getPosition());
         }
 
     }
@@ -87,9 +87,9 @@ public class SaveEmployeeController {
         String address = txtAddress.getText();
 
         EmployeeService employeeService = new EmployeeServiceImpl();
-        boolean status = employeeService.update(new EmployeeDTO(id, name,position,address));
+        boolean sts = employeeService.update(new EmployeeDTO(id, name,position,address));
 
-        if (status){
+        if (sts){
             System.out.println("Data Update successfully");
         }else {
             System.out.println("Id Not found");
