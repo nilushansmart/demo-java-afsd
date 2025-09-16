@@ -23,9 +23,9 @@ public class AdminController {
         boolean saved = adminService.saveAdmin(new AdminDTO(username, password));
 
         if (saved){
-            System.out.println("Saved successfully");
+            System.out.println("Employee Saved successfully");
         }else {
-            System.out.println("Saved failed");
+            System.out.println("Employee Data Saved failed");
         }
 
     }
